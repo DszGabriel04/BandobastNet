@@ -1,5 +1,7 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import UserProfile
 
 
@@ -7,7 +9,7 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        role = request.POST['role']  # Role selected by user
+        role = request.POST['role']
 
         user = authenticate(request, username=username, password=password)
 
@@ -18,9 +20,10 @@ def login_view(request):
 
                 # Redirect based on role
                 if role == 'officer':
-                    return redirect('officer_home')  # Redirect to officer home page
+                    return redirect('officer_home')
                 elif role == 'supervisor':
-                    return redirect('supervisor_home')  # Redirect to supervisor home page
+                    # return redirect(reverse('excel_upload:upload'))
+                    return redirect('supervisor_home')
             else:
                 return render(request, 'authentication/login.html', {'error': 'Incorrect role selected.'})
         else:
@@ -29,8 +32,10 @@ def login_view(request):
     return render(request, 'authentication/login.html')
 
 
+@login_required
 def officer_home(request):
-    return render(request, 'authentication/officer_home.html')  # Create this template
+    return render(request, 'authentication/officer_home.html')
 
+@login_required
 def supervisor_home(request):
-    return render(request, 'authentication/supervisor_home.html')  # Create this template
+    return render(request, 'authentication/supervisor_home.html')
