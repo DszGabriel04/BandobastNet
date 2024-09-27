@@ -1,0 +1,29 @@
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" required />
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required />
+    </div>
+
+    <div>
+        <label for="role">Login as:</label>
+        <select name="role" id="role" required>
+            <option value="officer">Officer</option>
+            <option value="supervisor">Supervisor</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Login</button>
+    </div>
+
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+</form>
