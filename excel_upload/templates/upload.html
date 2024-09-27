@@ -1,0 +1,10 @@
+<h2>Upload Excel File</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+
+{% if data %}
+<h2>Uploaded Data</h2>
+<div>{{ data|safe }}</div>
+{% endif %}
