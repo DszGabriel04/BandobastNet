@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import UserProfile, Officer, Supervisor
 from excel_upload.forms import UploadFileForm  # Import your upload form
+from django.http import JsonResponse
+import logging
+import json
 
 def login_view(request):
     if request.method == 'POST':
@@ -69,3 +72,28 @@ def supervisor_home(request):
 def supervisor_dashboard(request):
     form = UploadFileForm()  # Create an instance of the form
     return render(request, 'authentication/supervisor_dashboard.html', {'form': form})
+
+# authentication/views.py
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+@csrf_exempt  # Only use csrf_exempt for testing; implement CSRF protection in production
+def send_location(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            latitude = data.get('latitude')
+            longitude = data.get('longitude')
+
+            # Print latitude and longitude to the terminal
+            print(f"Received Latitude: {latitude}, Longitude: {longitude}")
+
+            # Respond back to the client
+            return JsonResponse({'status': 'success'})
+        except json.JSONDecodeError:
+            print("Error decoding JSON")
+            return JsonResponse({'status': 'fail', 'error': 'Invalid JSON'}, status=400)
+
+    return JsonResponse({'status': 'fail'}, status=400)

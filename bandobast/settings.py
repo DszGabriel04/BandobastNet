@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rf4%tjv#ta5=+=ht6&9eizf)*uo4b@@du6acf062#jr++0$=8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.9.164', 'localhost', '5ebc-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'bandobast',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'password'
+        'PASSWORD': 'Sylvan123*'
     }
 }
 
@@ -129,3 +129,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://5ebc-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app',  # Replace with your actual Ngrok URL
+]
