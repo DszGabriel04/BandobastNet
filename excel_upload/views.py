@@ -15,6 +15,9 @@ def upload(request):
             # Read the excel file using pandas
             df = pd.read_excel(excel_file)
 
+            # Create a set of usernames from the Excel sheet
+            excel_usernames = set(df['username'].values)
+
             # Iterate through the rows in the DataFrame
             for index, row in df.iterrows():
                 username = row['username']
@@ -34,18 +37,18 @@ def upload(request):
                     officer.duty_time_end = None  # Set to None explicitly
                     officer.save()
                 except Officer.DoesNotExist:
-                    # If not found, create a new officer with null attributes and set is_on_duty to False
-                    Officer.objects.update_or_create(
-                        user_profile__user__username=username,
-                        defaults={
-                            'duty_coord_lat': None,
-                            'duty_coord_long': None,
-                            'radius_of_duty': None,
-                            'duty_time_start': None,
-                            'duty_time_end': None,
-                            'is_on_duty': False
-                        }
-                    )
+                    # If not found, just skip (since it should already exist in the database)
+                    continue
+
+            # Now set attributes for all officers not in the Excel sheet to null and is_on_duty to False
+            Officer.objects.exclude(user_profile__user__username__in=excel_usernames).update(
+                duty_coord_lat=None,
+                duty_coord_long=None,
+                radius_of_duty=None,
+                duty_time_start=None,
+                duty_time_end=None,
+                is_on_duty=False
+            )
 
             # Redirect after processing
             return redirect(redirect_url)  # Redirect to the page passed in the query parameter
