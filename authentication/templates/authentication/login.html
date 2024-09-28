@@ -1,29 +1,52 @@
-<form method="post">
-    {% csrf_token %}
+{% load static %}
 
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" required />
-    </div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Original Code from https://github.com/giovannamoeller/login-form -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
+    <title>Police Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main class="container">
+        <h2>Login</h2>
+        <form method="post">
+            <div class="input-field">
+                <input type="text" name="username" id="username"
+                    placeholder="Enter Your Username">
+                <div class="underline"></div>
+            </div>
+            {% csrf_token %}
+            <div class="input-field">
+                <input type="password" name="password" id="password"
+                    placeholder="Enter Your Password">
+                <div class="underline"></div>
+                <br>
+            </div>
+            <div class="underline"></div>
+            <div class="input-field">
+                <select name="role" id="role">
+                    <option value="" disabled selected>Select Your Role</option>
+                    <option value="officer">Officer</option>
+                    <option value="supervisor">Supervisor</option>
+                </select>
+                <div class="underline"></div>
+            </div>
 
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required />
-    </div>
 
-    <div>
-        <label for="role">Login as:</label>
-        <select name="role" id="role" required>
-            <option value="officer">Officer</option>
-            <option value="supervisor">Supervisor</option>
-        </select>
-    </div>
+            <input type="submit" value="Continue">
 
-    <div>
-        <button type="submit">Login</button>
-    </div>
+            {% if error %}
+            <p style="color: red">{{ error }}</p>
+            {% endif %}
+        </form>
 
-    {% if error %}
-    <p style="color: red">{{ error }}</p>
-    {% endif %}
-</form>
+        <div class="footer">
+            
+        </div>
+    </main>
+</body>
+</html>

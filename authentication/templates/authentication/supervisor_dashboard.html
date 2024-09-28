@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+
+    <style>
+        /* Override the body background specifically for the officer's home page */
+        body {
+            background: white; /* Or any other desired color */
+            min-height: 100vh; 
+            min-width: 100vw; 
+            display: block; /* Remove centering */
+        }
+    </style>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Dashboard</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Officer Locations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Logoff Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Review Incidents</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">View Logs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Centered Text Div -->
+<!-- Centered Text Div -->
+<!-- Centered Text Div -->
+<div class="centered-text">
+    <h1>HELLO Supervisor!</h1>
+</div>
+<div class="centered-text">
+    <h6>Assign Duty</h6>
+    <form method="post" enctype="multipart/form-data" action="{% url 'excel_upload:upload' %}">
+        {% csrf_token %}
+        <label for="file-upload" class="drop-container" id="dropcontainer">
+            <span class="drop-title">Upload Excel File</span>
+            <input type="file" id="file-upload" name="file" accept=".xls,.xlsx" required>
+        </label>
+        <button type="submit" class="upload-button">Upload</button>
+    </form>
+</div>
+
+
+
+    
+
+
+
+    {% if data %}
+    <h2>Uploaded Data</h2>
+    <div>{{ data|safe }}</div>
+    {% endif %}
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import UserProfile, Officer, Supervisor
-
+from excel_upload.forms import UploadFileForm  # Import your upload form
 
 def login_view(request):
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def officer_home(request):
 
         # Check if the user is an officer
         if hasattr(user_profile, 'officer'):
-            return render(request, 'authentication/officer_home.html')
+            return render(request, 'authentication/officer_dashboard.html')                     #
         else:
             return redirect('login')
     except UserProfile.DoesNotExist:
@@ -59,8 +59,13 @@ def supervisor_home(request):
 
         # Check if the user is a supervisor
         if hasattr(user_profile, 'supervisor'):
-            return render(request, 'authentication/supervisor_home.html')
+            return render(request, 'authentication/supervisor_dashboard.html')                    #return render(request, 'authentication/supervisor_home.html')                                       #HERE
         else:
             return redirect('login')
     except UserProfile.DoesNotExist:
         return redirect('login')
+
+
+def supervisor_dashboard(request):
+    form = UploadFileForm()  # Create an instance of the form
+    return render(request, 'authentication/supervisor_dashboard.html', {'form': form})

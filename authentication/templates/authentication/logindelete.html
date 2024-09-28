@@ -1,0 +1,30 @@
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" required class="form-control" />
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label for="role">Login as:</label>
+        <select name="role" id="role" class="form-control" required>
+            <option value="officer">Officer</option>
+            <option value="supervisor">Supervisor</option>
+        </select>
+    </div>
+
+    <div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </div>
+
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+</form>
+

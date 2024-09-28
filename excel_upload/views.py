@@ -23,6 +23,7 @@ def upload(request):
                 username = row['username']
                 duty_coord_lat = row.get('duty_coord_lat')
                 duty_coord_long = row.get('duty_coord_long')
+                print(type(duty_coord_lat), type(duty_coord_long))
                 radius_of_duty = row.get('radius_of_duty')
 
                 try:
@@ -56,4 +57,4 @@ def upload(request):
     else:
         form = UploadFileForm()
 
-    return render(request, 'upload.html', {'form': form, 'data': data})
+    return render(request, 'authentication/supervisor_dashboard.html', {'form': form, 'data': data})
