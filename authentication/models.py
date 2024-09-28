@@ -5,15 +5,17 @@ from django.core.exceptions import ValidationError
 class UserProfile(models.Model):
     # user contains username and password
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_no = models.CharField(max_length=15, null=True, blank=True)
+    phone_no = models.CharField(max_length=15)
 
+    def __str__(self):
+        return self.user.username
 
 class Officer(models.Model):
-    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     is_on_duty = models.BooleanField(default=False)
+    supervisor_no = models.CharField(null=True, max_length=15)
     duty_coord_lat = models.FloatField(null=True, blank=True)
     duty_coord_long = models.FloatField(null=True, blank=True)
-    supervisor_no = models.CharField(max_length=15)
     radius_of_duty = models.FloatField(null=True, blank=True)
     duty_time_start = models.DateTimeField(null=True, blank=True)
     duty_time_end = models.DateTimeField(null=True, blank=True)
@@ -27,6 +29,11 @@ class Officer(models.Model):
         self.clean()
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.user_profile.user.username
 
 class Supervisor(models.Model):
-    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null = True, blank = True)
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user_profile.user.username

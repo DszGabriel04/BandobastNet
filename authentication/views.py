@@ -7,6 +7,7 @@ from .models import UserProfile, Officer, Supervisor
 
 def login_view(request):
     if request.method == 'POST':
+        # options presented on the form
         username = request.POST['username']
         password = request.POST['password']
         role = request.POST['role']
@@ -21,6 +22,7 @@ def login_view(request):
                 # Check if the user is an officer or supervisor
                 if role == 'officer' and hasattr(user_profile, 'officer'):
                     login(request, user)
+                    # resolve the url path defined in urls.py, which then calls officer_home
                     return redirect('officer_home')
                 elif role == 'supervisor' and hasattr(user_profile, 'supervisor'):
                     login(request, user)
@@ -43,7 +45,7 @@ def officer_home(request):
 
         # Check if the user is an officer
         if hasattr(user_profile, 'officer'):
-            return render(request, 'officer_home.html')
+            return render(request, 'authentication/officer_home.html')
         else:
             return redirect('login')
     except UserProfile.DoesNotExist:
@@ -57,7 +59,7 @@ def supervisor_home(request):
 
         # Check if the user is a supervisor
         if hasattr(user_profile, 'supervisor'):
-            return render(request, 'supervisor_home.html')
+            return render(request, 'authentication/supervisor_home.html')
         else:
             return redirect('login')
     except UserProfile.DoesNotExist:
