@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'bandobast.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',                           #FOR MYSQL
         'NAME': 'bandobast',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Sylvan123*'
+        'PASSWORD': 'password'
     }
 }
 
