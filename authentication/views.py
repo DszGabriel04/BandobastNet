@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -95,3 +95,8 @@ def send_location(request):
             return JsonResponse({'status': 'fail', 'error': 'Invalid JSON'}, status=400)
 
     return JsonResponse({'status': 'fail'}, status=400)
+
+
+def logout_view(request):
+    logout(request)  # Log the user out
+    return redirect('login')
