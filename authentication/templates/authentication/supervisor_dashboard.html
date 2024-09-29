@@ -87,6 +87,27 @@
         <div>{{ data|safe }}</div>
         {% endif %}
 
-        <script src="script.js"></script>
+        <button id="send-email-button" data-officer-id="{{ officer.id }}">
+            Send Notification Emails
+        </button>
+
+        <script>
+            document.getElementById("send-email-button").onclick = function () {
+                const officerId = this.getAttribute("data-officer-id");
+
+                fetch("{% url 'email_notifier:schedule_email' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                    body: JSON.stringify({ officer_id: officerId }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        alert(data.message);
+                    });
+            };
+        </script>
     </body>
 </html>

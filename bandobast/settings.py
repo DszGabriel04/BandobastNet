@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'pwa',
     'excel_upload',
     'authentication',
-    'map'
+    'map',
+    'email_notifier'
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,14 @@ PWA_APP_ICONS_APPLE = [
 ]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
+
+
+# settings.py
+
+# Email configuration (using SparkPost SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sylvandacunha@gmail.com'
+EMAIL_HOST_PASSWORD = 'dvhq cfbg zwqf xlfy'
