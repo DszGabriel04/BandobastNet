@@ -2,16 +2,29 @@
 
 var staticCacheName = "django-pwa-v" + new Date().getTime();
 var filesToCache = [
-  "/offline",
-  "/css/django-pwa-app.css",
-  "./",
-  "./static/css/styles.css", // Your CSS files
-  "./static/js/main.js", // Your JS files
-  "./authorization/", // Specific routes you want cached
-  "./excel_upload/", // Another route
-  "./static/icons/icon-192x192.png",
-  "./static/icons/icon-512x512.png",
+  "/offline", // Offline page
+  "/css/django-pwa-app.css", // CSS for your PWA
+  "/", // Home page
+  "/static/css/styles.css", // Your main CSS file
+  "/static/js/main.js", // Your main JS file
+  "/authorization/login", // Login page
+  "/authorization/logout", // Logout page (if applicable)
+  "/excel_upload/", // Excel upload page
+  "/map/", // Main map app route
+  "/static/icons/icon-192x192.png", // 192x192 icon
+  "/static/icons/icon-512x512.png", // 512x512 icon
 ];
+
+// Additional routes for caching
+filesToCache = filesToCache.concat([
+  "/authorization/signup", // Sign-up page if applicable
+  "/map/view", // View map page (add specific routes as needed)
+  "/map/edit", // Edit map page (add specific routes as needed)
+  "/static/css/*.css", // All CSS files (manually list if needed)
+  "/static/js/*.js", // All JS files (manually list if needed)
+  "/static/images/*", // All images
+  "/static/fonts/*", // All font files
+]);
 
 // Cache on install
 self.addEventListener("install", (event) => {

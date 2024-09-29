@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-rf4%tjv#ta5=+=ht6&9eizf)*uo4b@@du6acf062#jr++0$=8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['2a53-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app', 'localhost']
+# ALLOWED_HOSTS = ['618f-2409-40c2-205c-b62f-bf2f-daa9-a03f-1c36.ngrok-free.app', 'localhost', '127.0.0.1', '192.168.9.164', '192.168.127.81']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -135,15 +136,17 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
 CSRF_TRUSTED_ORIGINS = [
-    'https://5ebc-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app',  # Replace with your actual Ngrok URL
+    'https://*.ngrok-free.app',  # Allowing all subdomains under ngrok.io
+    'http://*.ngrok-free.app',
 ]
 
 
+
 # PWA SETTINGS
-
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
-
+PWA_SERVICE_WORKER_PATH = PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'service-worker.js')
 PWA_APP_NAME = 'Bandobast'
 PWA_APP_THEME_COLOR = '#0A0302'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
