@@ -2,6 +2,7 @@ import pandas as pd
 from django.shortcuts import render, redirect
 from .forms import UploadFileForm
 from authentication.models import Officer  # Import the Officer model
+import json
 
 def upload(request):
     data = None
@@ -18,6 +19,9 @@ def upload(request):
             # Create a set of usernames from the Excel sheet
             excel_usernames = set(df['username'].values)
 
+            # stores officer details as dict
+            json_off_list = []
+
             # Iterate through the rows in the DataFrame
             for index, row in df.iterrows():
                 username = row['username']
@@ -25,6 +29,14 @@ def upload(request):
                 duty_coord_long = row.get('duty_coord_long')
                 print(type(duty_coord_lat), type(duty_coord_long))
                 radius_of_duty = row.get('radius_of_duty')
+
+                # appends dict of details to list
+                json_off_list.append({
+                    "off_name":username,
+                    "duty_lat": duty_coord_lat,
+                    "duty_long": duty_coord_long,
+                    "range": radius_of_duty
+                })
 
                 try:
                     # Try to fetch the officer by username
@@ -40,6 +52,9 @@ def upload(request):
                 except Officer.DoesNotExist:
                     # If not found, just skip (since it should already exist in the database)
                     continue
+
+            with open('policedutydata.json', 'w') as json_file:
+                json.dump(json_off_list, json_file, indent=4)
 
             # Now set attributes for all officers not in the Excel sheet to null and is_on_duty to False
             Officer.objects.exclude(user_profile__user__username__in=excel_usernames).update(

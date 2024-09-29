@@ -6,6 +6,8 @@ from .models import UserProfile, Officer, Supervisor
 from excel_upload.forms import UploadFileForm  # Import your upload form
 from django.http import JsonResponse
 import logging
+import os
+import time
 import json
 
 def login_view(request):
@@ -89,6 +91,41 @@ def send_location(request):
 
             # Print latitude and longitude to the terminal
             print(f"Received Latitude: {latitude}, Longitude: {longitude}")
+
+            new_data = {
+                "off_name": "officer1",
+                "coords_lat": latitude,
+                "coords_long": longitude,
+                "timestamp": time.time()
+            }
+
+            # Define the file path
+            file_path = 'policedata.json'
+
+            # Check if the file exists
+            if os.path.exists(file_path):
+                # If file exists, open it in read and write mode
+                with open(file_path, 'r+') as file:
+                    try:
+                        # Load the existing data
+                        data = json.load(file)
+                    except json.JSONDecodeError:
+                        # If the file is empty or invalid, initialize it as an empty list
+                        data = []
+
+                    # Append the new data
+                    data.append(new_data)
+
+                    # Move the pointer to the beginning and write the updated data
+                    file.seek(0)
+                    json.dump(data, file, indent=4)
+
+                    # Truncate any leftover data (in case new data is smaller)
+                    file.truncate()
+            else:
+                # If file doesn't exist, create it and write the new data as a list
+                with open(file_path, 'w') as file:
+                    json.dump([new_data], file, indent=4)
 
             # Respond back to the client
             return JsonResponse({'status': 'success'})

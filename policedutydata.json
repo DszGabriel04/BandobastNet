@@ -1,0 +1,38 @@
+[
+    {
+        "off_name": "officer4",
+        "duty_lat": 16,
+        "duty_long": 73,
+        "range": 200.0
+    },
+    {
+        "off_name": "officer6",
+        "duty_lat": 16,
+        "duty_long": 76,
+        "range": 155.0
+    },
+    {
+        "off_name": "officer5",
+        "duty_lat": 15,
+        "duty_long": 75,
+        "range": 214.0
+    },
+    {
+        "off_name": "officer12",
+        "duty_lat": 15,
+        "duty_long": 72,
+        "range": 314.4
+    },
+    {
+        "off_name": "officer2",
+        "duty_lat": 13,
+        "duty_long": 74,
+        "range": 70.0
+    },
+    {
+        "off_name": "officer1",
+        "duty_lat": 15,
+        "duty_long": 79,
+        "range": 500.0
+    }
+]
