@@ -1,0 +1,57 @@
+{% load static %} {% load pwa %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Officer Dashboard</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+        {% progressive_web_app_meta %}
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+        {% csrf_token %}
+        <style>
+            body {
+                background: white;
+                min-height: 100vh;
+                min-width: 100vw;
+                display: block;
+            }
+        </style>
+
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">Dashboard</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="centered-text">
+            <h1>WELCOME {{ username }}!</h1>
+        </div>
+
+        <div class="location-tracking">
+            <button id="trackingButton">Start Tracking Location</button>
+        </div>
+
+        <div id="locationDisplay"></div>
+    </body>
+</html>
