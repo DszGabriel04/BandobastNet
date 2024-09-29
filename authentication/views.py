@@ -88,12 +88,13 @@ def send_location(request):
             data = json.loads(request.body)
             latitude = data.get('latitude')
             longitude = data.get('longitude')
+            username = request.user.username if request.user.is_authenticated else None
 
             # Print latitude and longitude to the terminal
             print(f"Received Latitude: {latitude}, Longitude: {longitude}")
 
             new_data = {
-                "off_name": "officer1",
+                "off_name": username,
                 "coords_lat": latitude,
                 "coords_long": longitude,
                 "timestamp": time.time()

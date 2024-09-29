@@ -137,7 +137,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://605d-2409-40c2-205c-b62f-817-5090-5d1-8032.ngrok-free.app',  # Replace with your actual Ngrok URL
+    'https://605d-2409-40c2-205c-b62f-817-5090-5d1-8032.ngrok-free.app',
+    'https://*.ngrok-free.app',  # Allowing all subdomains under ngrok.io
+    'http://*.ngrok-free.app', # Replace with your actual Ngrok URL
 ]
 
 
