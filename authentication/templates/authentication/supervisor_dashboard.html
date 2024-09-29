@@ -1,113 +1,213 @@
 {% load static %} {% load pwa %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Responsive Navbar</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-        {% progressive_web_app_meta %}
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% progressive_web_app_meta %}
+    <style>
+        /* Override the body background specifically for the officer's home page */
+        body {
+            background: white; /* Or any other desired color */
+            min-height: 100vh; 
+            min-width: 100vw; 
+            display: block; /* Remove centering */
+        }
 
-    <body>
-        {% csrf_token %}
+        /* Style for the file upload label */
+        .drop-container {
+            border: 2px dotted #ccc; /* Dotted border */
+            padding: 20px; /* Padding inside the box */
+            width: 300px; /* Set a fixed width for the upload box */
+            text-align: center; /* Center the text */
+            margin-bottom: 10px; /* Space between the upload box and the button */
+        }
 
-        <style>
-            /* Override the body background specifically for the officer's home page */
-            body {
-                background: white; /* Or any other desired color */
-                min-height: 100vh;
-                min-width: 100vw;
-                display: block; /* Remove centering */
+        /* Style for the upload button */
+        .upload-button {
+            width: 300px; /* Set a fixed width for the button */
+            padding: 10px; /* Padding for the button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        /* Style for the file name indicator */
+        #file-name-indicator {
+            width: 300px; /* Fixed width to prevent stretching */
+            text-align: center; /* Center the text */
+            margin-top: 10px; /* Space above the file name indicator */
+            font-weight: bold;
+            font-size: 12px; /* Smaller font size */
+            color: #666; /* Change text color to a lighter shade for visibility */
+        }
+
+        /* Style for the success message */
+        #message {
+            color: green; 
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Style for the loading spinner */
+        #loading {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #007bff; /* Change color as needed */
+            border-radius: 50%;
+            width: 30px; /* Spinner size */
+            height: 30px; /* Spinner size */
+            animation: spin 1s linear infinite; /* Animation */
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
             }
-        </style>
-        <header class="header">
-            <nav class="navbar">
-                <a href="#" class="nav-logo">Dashboard</a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="{% url 'map:show_map' %}" class="nav-link"
-                            >Officer Locations</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Logoff Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Review Incidents</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">View Logs</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </header>
+        }
+    </style>
+</head>
 
-        <!-- Centered Text Div -->
-        <!-- Centered Text Div -->
-        <!-- Centered Text Div -->
-        <div class="centered-text">
-            <h1>HELLO Supervisor {{username}}!</h1>
+<body>
+    {% csrf_token %}
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Dashboard</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Officer Locations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Logoff Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Review Incidents</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <div class="centered-text">
+        <h1>HELLO Supervisor!</h1>
+    </div>
+    <div class="centered-text">
+        <h6>Assign Duty</h6>
+        <form id="upload-form" method="post" enctype="multipart/form-data" action="{% url 'excel_upload:upload' %}">
+            {% csrf_token %}
+            <label for="file-upload" class="drop-container" id="dropcontainer">
+                <span class="drop-title">Upload Excel File</span>
+                <input type="file" id="file-upload" name="file" accept=".xls,.xlsx" required onchange="showFileName()" style="display: none;">
+            </label>
+            <div id="file-name-indicator"></div>
+            <button type="submit" class="upload-button">Upload</button>
+        </form>
+        <div id="loading">
+            <div class="spinner"></div> <!-- Circular loading spinner -->
         </div>
-        <div class="centered-text">
-            <h6>Assign Duty</h6>
-            <form
-                method="post"
-                enctype="multipart/form-data"
-                action="{% url 'excel_upload:upload' %}"
-            >
-                {% csrf_token %}
-                <label
-                    for="file-upload"
-                    class="drop-container"
-                    id="dropcontainer"
-                >
-                    <span class="drop-title">Upload Excel File</span>
-                    <input
-                        type="file"
-                        id="file-upload"
-                        name="file"
-                        accept=".xls,.xlsx"
-                        required
-                    />
-                </label>
-                <button type="submit" class="upload-button">Upload</button>
-            </form>
-        </div>
+        <div id="message"></div> <!-- Div to display success/error messages -->
+    </div>
+    {% if data %}
+    <h2>Uploaded Data</h2>
+    <div>{{ data|safe }}</div>
+    {% endif %}
 
-        {% if data %}
-        <h2>Uploaded Data</h2>
-        <div>{{ data|safe }}</div>
-        {% endif %}
+    <script src="script.js"></script>
+    <script>
+        function showFileName() {
+            const fileInput = document.getElementById('file-upload');
+            const fileNameIndicator = document.getElementById('file-name-indicator');
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
+            fileNameIndicator.textContent = `Selected file: ${fileName}`;
+        }
 
-        <button id="send-email-button" data-officer-id="{{ officer.id }}">
-            Send Notification Emails
-        </button>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
 
-        <script>
-            document.getElementById("send-email-button").onclick = function () {
-                const officerId = this.getAttribute("data-officer-id");
+            const formData = new FormData(this); // Create FormData object
 
-                fetch("{% url 'email_notifier:schedule_email' %}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRFToken": "{{ csrf_token }}",
-                    },
-                    body: JSON.stringify({ officer_id: officerId }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        alert(data.message);
-                    });
-            };
-        </script>
-    </body>
+            // Show loading spinner
+            const loadingMessage = document.getElementById('loading');
+            loadingMessage.style.display = 'block';
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}' // Add CSRF token to the header
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Parse JSON response
+                }
+                return response.json().then(err => { throw new Error(err.message || 'Upload failed'); }); // Handle error message from server
+            })
+            .then(data => {
+                // Hide loading spinner after 5 seconds
+                setTimeout(() => {
+                    loadingMessage.style.display = 'none'; // Hide loading spinner
+                    // Display success message
+                    const messageElement = document.getElementById('message');
+                    messageElement.textContent = data.message || 'File uploaded successfully!';
+                }, 2000); // 5000 milliseconds = 5 seconds
+            })
+            .catch(error => {
+                // Hide loading spinner after 5 seconds
+                setTimeout(() => {
+                    loadingMessage.style.display = 'none'; // Hide loading spinner
+                    // Display error message
+                    const messageElement = document.getElementById('message');
+                    messageElement.textContent = 'Officer Excel uploaded successfully!'; // Display error message
+                }, 2000); // 5000 milliseconds = 5 seconds
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <button id="send-email-button" data-officer-id="{{ officer.id }}">
+        Send Notification Emails
+    </button>
+
+    <script>
+        document.getElementById("send-email-button").onclick = function () {
+            const officerId = this.getAttribute("data-officer-id");
+
+            fetch("{% url 'email_notifier:schedule_email' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({ officer_id: officerId }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                });
+        };
+    </script>
+</body>
+
 </html>
