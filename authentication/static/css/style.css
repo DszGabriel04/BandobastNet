@@ -349,8 +349,8 @@ a {
 
 /* Adjust the heading margin to reduce space */
 .centered-text h1 {
-    margin-top: 100px;
-    margin-bottom: 100px; /* Adjust this value as needed */
+    margin-top: 50px;
+    margin-bottom: 10px; /* Adjust this value as needed */
 }
 
 .centered-text h6 {
@@ -410,5 +410,12 @@ input[type="file"] {
 }
 
 
-
+#file-name-indicator {
+    width: 300px; /* Fixed width to prevent stretching */
+    text-align: center; /* Center the text */
+    margin-top: 10px; /* Space above the file name indicator */
+    font-weight: bold;
+    font-size: 2px; /* Smaller font size */
+    color: #666; /* Change text color to a lighter shade for visibility */
+}
 
