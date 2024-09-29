@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rf4%tjv#ta5=+=ht6&9eizf)*uo4b@@du6acf062#jr++0$=8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.9.164', 'localhost', '5ebc-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app']
+ALLOWED_HOSTS = ['2a53-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app', 'localhost']
 
 
 # Application definition
@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pwa',
     'excel_upload',
-    'authentication'
+    'authentication',
+    'map'
 ]
 
 MIDDLEWARE = [
@@ -121,9 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'authentication','static').replace('\\','/'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(os.path.dirname(__file__), 'authentication','static').replace('\\','/'),
+# )
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -133,3 +138,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://5ebc-2409-40c2-2042-da4b-d47f-1c67-40f5-709c.ngrok-free.app',  # Replace with your actual Ngrok URL
 ]
+
+
+# PWA SETTINGS
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+PWA_APP_NAME = 'Bandobast'
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/login'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/icons/icon-192x192.png',
+        'sizes': '192x192'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/icon-512x512.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

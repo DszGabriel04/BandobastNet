@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load pwa %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,25 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Responsive Navbar</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        <link rel="manifest" href="{% static 'manifest.json' %}" />
-        <script>
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker
-                    .register("/static/js/service-worker.js")
-                    .then((registration) => {
-                        console.log(
-                            "ServiceWorker registration successful with scope: ",
-                            registration.scope,
-                        );
-                    })
-                    .catch((error) => {
-                        console.log(
-                            "ServiceWorker registration failed: ",
-                            error,
-                        );
-                    });
-            }
-        </script>
+
+        {% progressive_web_app_meta %}
     </head>
 
     <body>
@@ -45,7 +28,9 @@
                 <a href="#" class="nav-logo">Dashboard</a>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Officer Locations</a>
+                        <a href="{% url 'map:show_map' %}" class="nav-link"
+                            >Officer Locations</a
+                        >
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Logoff Requests</a>
