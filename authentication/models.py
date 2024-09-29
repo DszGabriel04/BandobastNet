@@ -6,6 +6,7 @@ class UserProfile(models.Model):
     # user contains username and password
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_no = models.CharField(max_length=15)
+    email = models.EmailField(null=True, blank=True)
 
     def __str__(self):
         return self.user.username

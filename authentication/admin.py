@@ -3,13 +3,13 @@ from .models import UserProfile, Officer, Supervisor
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'phone_no']
+    list_display = ['user', 'phone_no', 'email']
     search_fields = ['user__username', 'phone_no']
 
 
 @admin.register(Officer)
 class OfficerAdmin(admin.ModelAdmin):
-    list_display = ['user_profile', 'is_on_duty', 'supervisor_no', 'get_user_profile_phone_no','duty_coord_lat', 'duty_coord_long', 'radius_of_duty']
+    list_display = ['user_profile', 'is_on_duty', 'supervisor_no', 'get_user_profile_phone_no','duty_coord_lat', 'duty_coord_long', 'radius_of_duty', 'duty_time_start']
     search_fields = ['user_profile__user__username', 'supervisor_no']
     list_filter = ['is_on_duty']
 

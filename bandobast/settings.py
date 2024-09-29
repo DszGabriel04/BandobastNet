@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-rf4%tjv#ta5=+=ht6&9eizf)*uo4b@@du6acf062#jr++0$=8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['.vercel.app']
+=======
+# ALLOWED_HOSTS = ['618f-2409-40c2-205c-b62f-bf2f-daa9-a03f-1c36.ngrok-free.app', 'localhost', '127.0.0.1', '192.168.9.164', '192.168.127.81']
+ALLOWED_HOSTS = ['*']
+>>>>>>> main
 
 
 # Application definition
@@ -37,8 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pwa',
     'excel_upload',
-    'authentication'
+    'authentication',
+    'map',
+    'email_notifier'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +90,7 @@ DATABASES = {
         'NAME': 'bandobast',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'password'
+        'PASSWORD': 'Sylvan123*'
     }
 }
 
@@ -125,18 +133,71 @@ STATIC_URL = 'static/'
 # STATICFILES_DIRS = (
 #     os.path.join(os.path.dirname(__file__), 'authentication','static').replace('\\','/'),
 # )
+<<<<<<< HEAD
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR/'static']
+=======
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+>>>>>>> main
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
 STORAGES = {
     # ...
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+=======
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.ngrok-free.app',  # Allowing all subdomains under ngrok.io
+    'http://*.ngrok-free.app',
+]
+
+
+
+# PWA SETTINGS
+PWA_SERVICE_WORKER_PATH = PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'service-worker.js')
+PWA_APP_NAME = 'Bandobast'
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/login'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/icons/icon-192x192.png',
+        'sizes': '192x192'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/icon-512x512.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+
+
+# settings.py
+
+# Email configuration (using SparkPost SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sylvandacunha@gmail.com'
+EMAIL_HOST_PASSWORD = 'dvhq cfbg zwqf xlfy'
+>>>>>>> main
