@@ -33,7 +33,7 @@ const dutygroup = L.featureGroup().addTo(map);
 
 // Function to fetch the officer data
 function fetchOfficerData() {
-    fetch('/update-json/')  // Use the new endpoint
+    fetch('/static/map/combinedpoldat.json')  // Use the new endpoint
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

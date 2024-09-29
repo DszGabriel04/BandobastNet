@@ -135,6 +135,177 @@
     "range": 500.0
   },
   {
+    "off_name": "officer1",
+    "coords_lat": 15.3922224,
+    "coords_long": 73.8823065,
+    "timestamp": 1727598641.4076567,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922224,
+    "coords_long": 73.8823065,
+    "timestamp": 1727598651.0317464,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727598665.9832149,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727598681.1372693,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922121,
+    "coords_long": 73.8822899,
+    "timestamp": 1727598696.0874927,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922091,
+    "coords_long": 73.8822912,
+    "timestamp": 1727598711.1990795,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727598726.2922678,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922222,
+    "coords_long": 73.8822918,
+    "timestamp": 1727598741.1503806,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727598756.1922565,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.392218,
+    "coords_long": 73.882293,
+    "timestamp": 1727600609.7523012,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.392218,
+    "coords_long": 73.882293,
+    "timestamp": 1727600616.9230723,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922282,
+    "coords_long": 73.8823014,
+    "timestamp": 1727600628.3927832,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922235,
+    "coords_long": 73.8821657,
+    "timestamp": 1727600636.9946747,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600651.940698,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600666.9009817,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600682.0524154,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600697.2025352,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600712.384351,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3921196,
+    "coords_long": 73.8810488,
+    "timestamp": 1727600727.1082313,
+    "duty_lat": 15.39,
+    "duty_long": 73.88,
+    "range": 500.0
+  },
+  {
     "off_name": "officer4",
     "duty_lat": 16.0,
     "duty_long": 73.0,
