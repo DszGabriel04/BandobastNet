@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-rf4%tjv#ta5=+=ht6&9eizf)*uo4b@@du6acf062#jr++0$=8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['618f-2409-40c2-205c-b62f-bf2f-daa9-a03f-1c36.ngrok-free.app', 'localhost', '127.0.0.1', '192.168.9.164', '192.168.127.81']
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'bandobast',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Sylvan123*'
+        'PASSWORD': '12345678'
     }
 }
 
@@ -132,6 +132,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

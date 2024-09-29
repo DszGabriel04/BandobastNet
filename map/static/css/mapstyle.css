@@ -1,0 +1,85 @@
+/* Navbar and Header Styles */
+.navbar {
+    background-color: #64a354; /* Light background for the navbar */
+    padding: 10px;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item .nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav-item .nav-link:hover {
+    color: #dcdcdc;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #64a354;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 80vh;
+}
+
+.mapcontainer {
+    position: relative;
+    height: 80vh;
+    width: 60%;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    border-left: 2px solid #ccc;
+}

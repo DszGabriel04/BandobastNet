@@ -1,0 +1,86 @@
+[
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922235,
+    "coords_long": 73.8822988,
+    "timestamp": 1727590419.6351686,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922315,
+    "coords_long": 73.8822961,
+    "timestamp": 1727590434.7879536,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922232,
+    "coords_long": 73.8822959,
+    "timestamp": 1727590449.7496395,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922232,
+    "coords_long": 73.8822959,
+    "timestamp": 1727590450.967624,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922295,
+    "coords_long": 73.8823072,
+    "timestamp": 1727592041.41723,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer1",
+    "coords_lat": 15.3922295,
+    "coords_long": 73.8823072,
+    "timestamp": 1727592041.4184117,
+    "duty_lat": 15,
+    "duty_long": 79,
+    "range": 500.0
+  },
+  {
+    "off_name": "officer4",
+    "duty_lat": 16,
+    "duty_long": 73,
+    "range": 200.0
+  },
+  {
+    "off_name": "officer6",
+    "duty_lat": 16,
+    "duty_long": 76,
+    "range": 155.0
+  },
+  {
+    "off_name": "officer5",
+    "duty_lat": 15,
+    "duty_long": 75,
+    "range": 214.0
+  },
+  {
+    "off_name": "officer12",
+    "duty_lat": 15,
+    "duty_long": 72,
+    "range": 314.4
+  },
+  {
+    "off_name": "officer2",
+    "duty_lat": 13,
+    "duty_long": 74,
+    "range": 70.0
+  }
+]

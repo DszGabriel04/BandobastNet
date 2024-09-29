@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .forms import UploadFileForm
 from authentication.models import Officer  # Import the Officer model
 from django.utils import timezone
+import json
+import os
 
 def upload(request):
     data = None
@@ -19,9 +21,13 @@ def upload(request):
             # Create a set of usernames from the Excel sheet
             excel_usernames = set(df['username'].values)
 
+
             # Convert the datetime columns
             df['duty_time_start'] = pd.to_datetime(df['duty_time_start'], errors='coerce')
             df['duty_time_end'] = pd.to_datetime(df['duty_time_end'], errors='coerce')
+            # stores officer details as dict
+            json_off_list = []
+
 
             # Iterate through the rows in the DataFrame
             for index, row in df.iterrows():
@@ -31,6 +37,14 @@ def upload(request):
                 radius_of_duty = row.get('radius_of_duty')
                 duty_time_start = row.get('duty_time_start')
                 duty_time_end = row.get('duty_time_end')
+
+                # appends dict of details to list
+                json_off_list.append({
+                    "off_name":username,
+                    "duty_lat": duty_coord_lat,
+                    "duty_long": duty_coord_long,
+                    "range": radius_of_duty
+                })
 
                 try:
                     # Try to fetch the officer by username
@@ -46,6 +60,14 @@ def upload(request):
                 except Officer.DoesNotExist:
                     # If not found, just skip (since it should already exist in the database)
                     continue
+
+            file_path = os.path.join('map', 'static', 'map', 'policedutydata.json')
+
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+            with open(file_path, 'w') as json_file:
+                json.dump(json_off_list, json_file, indent=4)
 
             # Now set attributes for all officers not in the Excel sheet to null and is_on_duty to False
             Officer.objects.exclude(user_profile__user__username__in=excel_usernames).update(

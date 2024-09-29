@@ -6,7 +6,10 @@ from .models import UserProfile, Officer, Supervisor
 from excel_upload.forms import UploadFileForm  # Import your upload form
 from django.http import JsonResponse
 import logging
+import os
+import time
 import json
+import datetime
 
 def login_view(request):
     if request.method == 'POST':
@@ -77,6 +80,7 @@ def supervisor_dashboard(request):
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt  # Only use csrf_exempt for testing; implement CSRF protection in production
+@login_required  # Ensure that the user is logged in
 def send_location(request):
     if request.method == 'POST':
         try:
@@ -87,6 +91,44 @@ def send_location(request):
 
             # Print latitude and longitude to the terminal
             print(f"Received Latitude: {latitude}, Longitude: {longitude} of officer {username}")
+
+            new_data = {
+                "off_name": username,
+                "coords_lat": latitude,
+                "coords_long": longitude,
+                "timestamp": datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+            }
+
+            # Define the file path to save JSON data
+            file_path = os.path.join('map', 'static', 'map', 'policedata.json')
+
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+            # Check if the file exists
+            if os.path.exists(file_path):
+                # If file exists, open it in read and write mode
+                with open(file_path, 'r+') as file:
+                    try:
+                        # Load the existing data
+                        existing_data = json.load(file)
+                    except json.JSONDecodeError:
+                        # If the file is empty or invalid, initialize it as an empty list
+                        existing_data = []
+
+                    # Append the new data
+                    existing_data.append(new_data)
+
+                    # Move the pointer to the beginning and write the updated data
+                    file.seek(0)
+                    json.dump(existing_data, file, indent=4)
+
+                    # Truncate any leftover data (in case new data is smaller)
+                    file.truncate()
+            else:
+                # If file doesn't exist, create it and write the new data as a list
+                with open(file_path, 'w') as file:
+                    json.dump([new_data], file, indent=4)
 
             # Respond back to the client
             return JsonResponse({'status': 'success'})
