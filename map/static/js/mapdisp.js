@@ -89,8 +89,8 @@ function fetchOfficerData() {
             // Bind popup to the marker
             currentMarker.bindPopup(`
                 Officer: ${item.off_name}<br>
-                Current Location: (${item.coords_lat.toFixed(4)}, ${item.coords_long.toFixed(4)})<br>
-                Duty Location: (${item.duty_lat.toFixed(4)}, ${item.duty_long.toFixed(4)})<br>
+                Current Location: (${item.coords_lat.toFixed(9)}, ${item.coords_long.toFixed(9)})<br>
+                Duty Location: (${item.duty_lat.toFixed(9)}, ${item.duty_long.toFixed(9)})<br>
                 Status: ${isInside ? "Inside" : "Outside"} the duty circle`);
         });
 
