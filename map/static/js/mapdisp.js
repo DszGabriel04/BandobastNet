@@ -33,7 +33,7 @@ const dutygroup = L.featureGroup().addTo(map);
 
 // Function to fetch the officer data
 function fetchOfficerData() {
-    fetch('/static/map/combinedpoldat.json')  // Use the new endpoint
+    fetch('/static/map/policedata.json')  // Use the new endpoint
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -65,7 +65,7 @@ function fetchOfficerData() {
 
             // Create a marker for the current officer's location
             const currentMarker = L.marker([item.coords_lat, item.coords_long], { icon: policeIcon }).addTo(officergroup);
-
+            /*
             // Create a circle for the duty area
             const dutyCircle = L.circle([item.duty_lat, item.duty_long], {
                 radius: item.range,
@@ -86,14 +86,19 @@ function fetchOfficerData() {
                 fillColor: isInside ? '#30a3e6' : '#bd1122'
             });
 
+            
             // Bind popup to the marker
             currentMarker.bindPopup(`
                 Officer: ${item.off_name}<br>
-                Current Location: (${item.coords_lat.toFixed(9)}, ${item.coords_long.toFixed(9)})<br>
-                Duty Location: (${item.duty_lat.toFixed(9)}, ${item.duty_long.toFixed(9)})<br>
+                Current Location: (${item.coords_lat.toFixed(6)}, ${item.coords_long.toFixed(6)})<br>
+                Duty Location: (${item.duty_lat.toFixed(6)}, ${item.duty_long.toFixed(6)})<br>
                 Status: ${isInside ? "Inside" : "Outside"} the duty circle`);
-        });
-
+            });*/
+            currentMarker.bindPopup(`
+                Officer: ${item.off_name}<br>
+                Current Location: (${item.coords_lat.toFixed(6)}, ${item.coords_long.toFixed(6)})<br>`);
+            });
+        /*
         // Fit map to officer markers
         const offbounds = officergroup.getBounds();
         if (offbounds.isValid()) {
@@ -101,6 +106,7 @@ function fetchOfficerData() {
         } else {
             console.error('Invalid bounds:', offbounds);
         }
+            */
     })
     .catch(error => console.error('Error fetching the JSON:', error));
 }

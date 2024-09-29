@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import UploadFileForm
 from authentication.models import Officer  # Import the Officer model
 import json
+import os
 
 def upload(request):
     data = None
@@ -53,7 +54,12 @@ def upload(request):
                     # If not found, just skip (since it should already exist in the database)
                     continue
 
-            with open('policedutydata.json', 'w') as json_file:
+            file_path = os.path.join('map', 'static', 'map', 'policedutydata.json')
+
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+            with open(file_path, 'w') as json_file:
                 json.dump(json_off_list, json_file, indent=4)
 
             # Now set attributes for all officers not in the Excel sheet to null and is_on_duty to False

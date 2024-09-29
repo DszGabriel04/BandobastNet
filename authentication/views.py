@@ -9,6 +9,7 @@ import logging
 import os
 import time
 import json
+import datetime
 
 def login_view(request):
     if request.method == 'POST':
@@ -82,6 +83,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 @csrf_exempt  # Only use csrf_exempt for testing; implement CSRF protection in production
+@login_required  # Ensure that the user is logged in
 def send_location(request):
     if request.method == 'POST':
         try:
@@ -97,11 +99,14 @@ def send_location(request):
                 "off_name": username,
                 "coords_lat": latitude,
                 "coords_long": longitude,
-                "timestamp": time.time()
+                "timestamp": datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             }
 
-            # Define the file path
-            file_path = 'policedata.json'
+            # Define the file path to save JSON data
+            file_path = os.path.join('map', 'static', 'map', 'policedata.json')
+
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
             # Check if the file exists
             if os.path.exists(file_path):
@@ -109,17 +114,17 @@ def send_location(request):
                 with open(file_path, 'r+') as file:
                     try:
                         # Load the existing data
-                        data = json.load(file)
+                        existing_data = json.load(file)
                     except json.JSONDecodeError:
                         # If the file is empty or invalid, initialize it as an empty list
-                        data = []
+                        existing_data = []
 
                     # Append the new data
-                    data.append(new_data)
+                    existing_data.append(new_data)
 
                     # Move the pointer to the beginning and write the updated data
                     file.seek(0)
-                    json.dump(data, file, indent=4)
+                    json.dump(existing_data, file, indent=4)
 
                     # Truncate any leftover data (in case new data is smaller)
                     file.truncate()
