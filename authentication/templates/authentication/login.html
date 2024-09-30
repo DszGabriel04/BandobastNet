@@ -1,52 +1,75 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <!-- Original Code from https://github.com/giovannamoeller/login-form -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
-    <title>Police Login</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <main class="container">
-        <h2>Login</h2>
-        <form method="post">
-            <div class="input-field">
-                <input type="text" name="username" id="username"
-                    placeholder="Enter Your Username">
-                <div class="underline"></div>
-            </div>
-            {% csrf_token %}
-            <div class="input-field">
-                <input type="password" name="password" id="password"
-                    placeholder="Enter Your Password">
-                <div class="underline"></div>
-                <br>
-            </div>
-            <div class="underline"></div>
-            <div class="input-field">
-                <select name="role" id="role">
-                    <option value="" disabled selected>Select Your Role</option>
-                    <option value="officer">Officer</option>
-                    <option value="supervisor">Supervisor</option>
-                </select>
-                <div class="underline"></div>
-            </div>
-
-
-            <input type="submit" value="Continue">
-
-            {% if error %}
-            <p style="color: red">{{ error }}</p>
-            {% endif %}
-        </form>
-
-        <div class="footer">
-            
+    <head>
+        <!-- Original Code from https://github.com/giovannamoeller/login-form -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://kit.fontawesome.com/1ab94d0eba.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Police Login</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <div style="text-align: center; margin: 50px 0">
+            <img
+                src="{% static 'icons/Emblem_of_Goa_Police.png' %}"
+                alt="Goa Police Emblem"
+                style="
+                    display: block;
+                    margin: 0 auto 0 -30px;
+                    max-width: 100%;
+                    height: auto;
+                "
+            />
         </div>
-    </main>
-</body>
+
+        <main class="container">
+            <h2>Login</h2>
+            <form method="post">
+                <div class="input-field">
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Enter Your Username"
+                    />
+                    <div class="underline"></div>
+                </div>
+                {% csrf_token %}
+                <div class="input-field">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Enter Your Password"
+                    />
+                    <div class="underline"></div>
+                    <br />
+                </div>
+                <div class="underline"></div>
+                <div class="input-field">
+                    <select name="role" id="role">
+                        <option value="" disabled selected>
+                            Select Your Role
+                        </option>
+                        <option value="officer">Officer</option>
+                        <option value="supervisor">Supervisor</option>
+                    </select>
+                    <div class="underline"></div>
+                </div>
+
+                <input type="submit" value="Continue" />
+
+                {% if error %}
+                <p style="color: red">{{ error }}</p>
+                {% endif %}
+            </form>
+
+            <div class="footer"></div>
+        </main>
+    </body>
 </html>

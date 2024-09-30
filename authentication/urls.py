@@ -7,4 +7,5 @@ urlpatterns = [
     path('home/officer/', views.officer_home, name='officer_home'),
     path('home/supervisor/', views.supervisor_home, name='supervisor_home'),
     path('track-location/', views.send_location, name='track_location'),  # New endpoint
+
 ]
