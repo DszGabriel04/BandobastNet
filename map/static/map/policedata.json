@@ -1,170 +1,98 @@
 [
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921469,
-        "coords_long": 73.8822924,
-        "timestamp": "2024-09-29 13:03:12"
+        "off_name": "officer2",
+        "coords_lat": 15.3921139,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:51"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921541,
-        "coords_long": 73.8823016,
-        "timestamp": "2024-09-29 13:03:12"
+        "off_name": "officer2",
+        "coords_lat": 15.3921139,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:52"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921516,
-        "coords_long": 73.8822908,
-        "timestamp": "2024-09-29 13:03:13"
+        "off_name": "officer2",
+        "coords_lat": 15.3921139,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:53"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921573,
-        "coords_long": 73.8822927,
-        "timestamp": "2024-09-29 13:03:14"
+        "off_name": "officer2",
+        "coords_lat": 15.3921139,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:54"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921576,
-        "coords_long": 73.8822901,
-        "timestamp": "2024-09-29 13:03:14"
+        "off_name": "officer2",
+        "coords_lat": 15.3921139,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:55"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921582,
-        "coords_long": 73.88229,
-        "timestamp": "2024-09-29 13:03:14"
+        "off_name": "officer2",
+        "coords_lat": 15.3921138,
+        "coords_long": 73.881966,
+        "timestamp": "2024-10-19 11:54:56"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921555,
-        "coords_long": 73.8822829,
-        "timestamp": "2024-09-29 13:03:15"
+        "off_name": "officer2",
+        "coords_lat": 15.3921138,
+        "coords_long": 73.881966,
+        "timestamp": "2024-10-19 11:54:57"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921531,
-        "coords_long": 73.8822761,
-        "timestamp": "2024-09-29 13:03:16"
+        "off_name": "officer2",
+        "coords_lat": 15.3921138,
+        "coords_long": 73.881966,
+        "timestamp": "2024-10-19 11:54:58"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3921527,
-        "coords_long": 73.8822738,
-        "timestamp": "2024-09-29 13:03:17"
+        "off_name": "officer2",
+        "coords_lat": 15.3921136,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:54:59"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.392239,
-        "coords_long": 73.8822808,
-        "timestamp": "2024-09-29 13:03:46"
+        "off_name": "officer2",
+        "coords_lat": 15.3921136,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:00"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.392239,
-        "coords_long": 73.8822808,
-        "timestamp": "2024-09-29 13:03:53"
+        "off_name": "officer2",
+        "coords_lat": 15.3921136,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:02"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3922219,
-        "coords_long": 73.8822943,
-        "timestamp": "2024-09-29 13:03:58"
+        "off_name": "officer2",
+        "coords_lat": 15.3921137,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:02"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.392221,
-        "coords_long": 73.8822998,
-        "timestamp": "2024-09-29 13:04:00"
+        "off_name": "officer2",
+        "coords_lat": 15.3921136,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:03"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3922271,
-        "coords_long": 73.882308,
-        "timestamp": "2024-09-29 13:04:02"
+        "off_name": "officer2",
+        "coords_lat": 15.3921137,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:06"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3922294,
-        "coords_long": 73.8823108,
-        "timestamp": "2024-09-29 13:04:05"
+        "off_name": "officer2",
+        "coords_lat": 15.3921137,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:06"
     },
     {
-        "off_name": "officer1",
-        "coords_lat": 15.3922316,
-        "coords_long": 73.8823137,
-        "timestamp": "2024-09-29 13:04:05"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922333,
-        "coords_long": 73.882316,
-        "timestamp": "2024-09-29 13:04:05"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922346,
-        "coords_long": 73.8823176,
-        "timestamp": "2024-09-29 13:04:06"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922352,
-        "coords_long": 73.882318,
-        "timestamp": "2024-09-29 13:04:07"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922341,
-        "coords_long": 73.8823136,
-        "timestamp": "2024-09-29 13:04:09"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922344,
-        "coords_long": 73.8823152,
-        "timestamp": "2024-09-29 13:04:09"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.392235,
-        "coords_long": 73.8823137,
-        "timestamp": "2024-09-29 13:04:09"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922452,
-        "coords_long": 73.8823008,
-        "timestamp": "2024-09-29 13:04:09"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.392247,
-        "coords_long": 73.8822993,
-        "timestamp": "2024-09-29 13:04:10"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922481,
-        "coords_long": 73.8822952,
-        "timestamp": "2024-09-29 13:04:10"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922485,
-        "coords_long": 73.8822964,
-        "timestamp": "2024-09-29 13:04:10"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922582,
-        "coords_long": 73.8822834,
-        "timestamp": "2024-09-29 13:04:13"
-    },
-    {
-        "off_name": "officer1",
-        "coords_lat": 15.3922595,
-        "coords_long": 73.8822823,
-        "timestamp": "2024-09-29 13:04:14"
+        "off_name": "officer2",
+        "coords_lat": 15.3921137,
+        "coords_long": 73.8819661,
+        "timestamp": "2024-10-19 11:55:06"
     }
 ]

@@ -285,14 +285,14 @@
                                 data.message ||
                                     "Notification sent successfully!",
                             ); // Display success message
-                        }, 2000); // 2000 milliseconds = 2 seconds
+                        }, 500); // 2000 milliseconds = 2 seconds
                     })
                     .catch((error) => {
                         // Hide loading spinner after 2 seconds in case of error
                         setTimeout(() => {
                             notificationLoading.style.display = "none"; // Hide loading spinner
                             alert("Failed to send notification."); // Display error message
-                        }, 2000); // 2000 milliseconds = 2 seconds
+                        }, 500); // 2000 milliseconds = 2 seconds
                     });
             };
         </script>
