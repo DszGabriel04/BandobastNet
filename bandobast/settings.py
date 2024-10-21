@@ -79,13 +79,23 @@ WSGI_APPLICATION = 'bandobast.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',                           #FOR MYSQL
+#         'NAME': 'bandobast',
+#         'HOST': 'localhost',
+#         'USER': 'root',
+#         'PASSWORD': 'Sylvan123*'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',                           #FOR MYSQL
-        'NAME': 'bandobast',
+        'NAME': 'traffic_management',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Sylvan123*'
+        'PASSWORD': 'password'
     }
 }
 

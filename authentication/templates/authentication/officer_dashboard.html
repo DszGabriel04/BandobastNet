@@ -52,5 +52,63 @@
             </div>
         </div>
 
+
+
+
+
+
+        
+        <hr style="border: 0; height: 1px; background-color: #ccc; margin: 20px 0;">
+
+        <div style="text-align: center; margin: 20px 0;">
+            <h1 style="font-size: 32px; font-weight: bold; color: #004085; border-bottom: 2px solid #004085; display: inline-block; padding-bottom: 5px;">
+                ALERTS
+            </h1>
+        </div>
+        
+        <main role="main" style="max-width: 800px; margin: 0 auto; background-color: #f8f9fa; border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
+            <div style="display: flex; align-items: center; padding: 15px; background-color: #004085; color: white; border-radius: 8px;">
+                <div>
+                    <h4 style="margin-bottom: 0; font-size: 24px;">NOTIFICATIONS</h4>
+                </div>
+            </div>
+        
+            <div style="margin-top: 20px; padding: 15px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <h6 style="border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; color: #495057;">Recent Updates</h6>
+        
+                <!-- Emergency messages will be dynamically generated here -->
+                {% if roads %}
+                    {% for road in roads %}
+                        <div style="padding-bottom: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+                            <strong style="color: #004085;">@EMERGENCY</strong>
+                            <p style="margin: 5px 0; color: #333;">The {{ road }} will be given more priority due to ambulance; please give way.</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div style="padding-bottom: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+                        <strong style="color: #004085;">@MADGAO</strong>
+                        <p style="margin: 5px 0; color: #333;">An ambulance is on Murida road heading towards the Victor Hospital. Please expect changes in traffic signal timings to accommodate its priority.</p>
+                    </div>
+                    <div style="padding-bottom: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+                        <strong style="color: #004085;">@MADGAO</strong>
+                        <p style="margin: 5px 0; color: #333;">Emergency vehicle detected on Panvel Highway heading towards Hospicio. Traffic signals are adjusted to allow its smooth passage.</p>
+                    </div>
+                    <div style="padding-bottom: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+                        <strong style="color: #004085;">@MAPUSA</strong>
+                        <p style="margin: 5px 0; color: #333;">Ambulance heading towards Galaxy Hospital Mapusa via Camurlim road. Signal timings have been modified to prioritize emergency response.</p>
+                    </div>
+                    <div style="padding-bottom: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+                        <strong style="color: #004085;">@EMERGENCY</strong>
+                        <p style="margin: 5px 0; color: #333;">An ambulance is on its way along Riverside Drive. Traffic lights are now synchronized to ensure quick response.</p>
+                    </div>
+                {% endif %}
+            </div>
+        
+            <small style="display: block; text-align: right; margin-top: 20px;">
+                <a href="#" style="text-decoration: none; color: #004085;">All messages</a>
+            </small>
+        </main>
+
+
     </body>
 </html>
